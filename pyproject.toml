@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "qhub_catalog/_version.py"
+version_scheme = "release-branch-semver"
+local_scheme = "node-and-timestamp"
+
+[tool.pytest.ini_options]
+addopts = "--nbval"
+testpaths = [
+    "docs"
+]
