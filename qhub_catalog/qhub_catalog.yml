@@ -1,13 +1,22 @@
-{
- "sources": {
-     "states": {
-         "driver": "csv",
-         "args": {
-             "urlpath": "{{CATALOG_DIR}}/states_*.csv"
-         },
-         "metadata": {
-             "origin_url": "https://github.com/CivilServiceUSA/us-states/blob/v1.0.0/data/states.csv"
-         }
-     }
- }   
-}
+sources:
+  states:
+    description: 'US state information from [CivilServices](https://civil.services/)'
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/states_*.csv'
+    metadata:
+      origin_url: 'https://github.com/CivilServiceUSA/us-states/blob/v1.0.0/data/states.csv'
+  iris:
+    description: 'Well known iris dataset'
+    driver: csv
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/iris.csv'
+  austin_trees:
+    description: 'Public tree locations inventoried by the City of Austin as of March 13th, 2020.'
+    driver: csv
+    args:
+      urlpath: 'gcs://qhub_catalog/tree-inventory-austin-tx-2020.csv'
+      storage_options:
+        token: 'cloud'
+      csv_kwargs:
+        assume_missing: true
